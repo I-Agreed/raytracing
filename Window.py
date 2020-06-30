@@ -28,7 +28,7 @@ class Window():
     def mouseEvent(self, x, y):
         for i in range(0, 360, 5):
             ray = Ray(self, x, y, i)
-            pos = ray.cast()
+            pos = ray.cast(maxError=350)
             self.drawLine(ray.x, ray.y, *pos, (0, 0, 255))
 
     def drawEllipse(self, x, y, w, h, colour):

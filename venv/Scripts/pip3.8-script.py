@@ -1,4 +1,4 @@
-#!"C:\Users\Brend\OneDrive\Desktop\github repos\raytracing-vision\venv\Scripts\python.exe"
+#!"C:\Users\Brend\OneDrive\Desktop\github repos\raytracing\venv\Scripts\python.exe"
 # EASY-INSTALL-ENTRY-SCRIPT: 'pip==19.0.3','console_scripts','pip3.8'
 __requires__ = 'pip==19.0.3'
 import re

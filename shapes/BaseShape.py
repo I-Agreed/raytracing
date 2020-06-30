@@ -11,5 +11,8 @@ class BaseShape:
     def draw(self):
         pass
 
-    def closest(self):
+    def distance(self, x, y):
         pass
+
+    def center(self):
+        return self.x + self.w / 2, self.y + self.h / 2

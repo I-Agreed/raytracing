@@ -1,4 +1,5 @@
 from shapes.BaseShape import BaseShape
+from misc import *
 
 
 class Ellipse(BaseShape):
@@ -7,3 +8,7 @@ class Ellipse(BaseShape):
 
     def draw(self):
         self.master.drawEllipse(self.x, self.y, self.w, self.h, self.colour)
+
+    def distance(self, x, y):
+        if self.w == self.h:
+            return pythag(x, y, self.x + self.w / 2, self.y + self.w / 2) - self.w / 2

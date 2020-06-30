@@ -1,6 +1,4 @@
 from Window import Window
-import sys
-import pygame
 from shapes import *
 
 win = Window(500, 500)

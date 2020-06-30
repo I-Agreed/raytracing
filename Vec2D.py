@@ -38,7 +38,7 @@ class Vec2D(tuple):
     
     def rotate(self,angle):
         perp = Vec2D(-self[1], self[0])
-        angle = angle * math.pi / 180.0
+        angle = -(angle * math.pi / 180.0)
         c, s = math.cos(angle), math.sin(angle)
         return Vec2D(self[0]*c+perp[0]*s, self[1]*c+perp[1]*s)
     
@@ -58,3 +58,7 @@ class Vec2D(tuple):
 
     def getPointBetween(self,vec,d=0.5):
         return Vec2D(self[0]-(self[0]-vec[0])*d,self[1]-(self[1]-vec[1])*d)
+
+if __name__ == '__main__':
+    a = Vec2D(0, 100)
+    print(a.rotate(90))

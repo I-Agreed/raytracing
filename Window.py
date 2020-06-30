@@ -2,6 +2,7 @@ import pygame
 from misc import *
 import ctypes
 import sys
+from Ray import Ray
 
 class Window():
     def __init__(self, w=320, h=240):
@@ -16,23 +17,16 @@ class Window():
 
     def frame(self):
 
-
         for i in self.shapes:
             i.draw()
 
         pygame.display.flip()
 
     def mouseEvent(self, x, y):
-        closest = None
-        for i in self.shapes:
-            point = i.distance(x, y)
-            if point is not None:
-                if closest is None:
-                    closest = point
-                elif closest > point:
-                    closest = point
-        if closest > 0:
-            self.drawEllipse(x-closest, y-closest, closest*2, closest*2, (0, 0, 255))
+        ray = Ray(self, x, y, -180)
+        pos = ray.cast()
+        print(pos, ray.x, ray.y)
+        self.drawLine(ray.x, ray.y, *pos, (0, 0, 255))
 
     def drawEllipse(self, x, y, w, h, colour):
         pygame.draw.ellipse(self.screen, colour, (x, y, w, h))
@@ -43,7 +37,7 @@ class Window():
     def drawRect(self, x, y, w, h, colour):
         pygame.draw.rect(self.screen, colour, (x, y, w, h))
 
-    def drawLine(self, x1, x2, y1, y2, colour):
+    def drawLine(self, x1, y1, x2, y2, colour):
         pygame.draw.line(self.screen, colour, (x1, y1), (x2, y2))
 
     def events(self):
@@ -57,3 +51,17 @@ class Window():
                     sys.exit()
             self.mouseEvent(*pygame.mouse.get_pos())
             self.frame()
+
+    def closest(self, x, y):
+        closest = None
+        shape = None
+        for i in self.shapes:
+            point = i.distance(x, y)
+            if point is not None:
+                if closest is None:
+                    closest = point
+                    shape = i
+                elif closest > point:
+                    closest = point
+                    shape = i
+        return closest, shape

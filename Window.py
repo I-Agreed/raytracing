@@ -36,7 +36,7 @@ class Window():
         pygame.draw.ellipse(self.screen, colour, (x, y, w, h))
 
     def drawPolygon(self, colour, *points):
-        pygame.draw.polygon(self.screen, colour, points)
+        pygame.draw.polygon(self.screen, colour, *points)
 
     def drawRect(self, x, y, w, h, colour):
         pygame.draw.rect(self.screen, colour, (x, y, w, h))

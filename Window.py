@@ -4,6 +4,7 @@ import ctypes
 import sys
 from Ray import Ray
 import time
+from shapes import *
 
 class Window():
     def __init__(self, w=320, h=240):
@@ -55,9 +56,12 @@ class Window():
             self.mouseEvent(*pygame.mouse.get_pos())
             self.frame()
 
-            timeNow = time.time()
-            frameTime = timeNow - self.fpsLastTime
-            pygame.display.set_caption(str(round(1/frameTime)))
+            try:
+                timeNow = time.time()
+                frameTime = timeNow - self.fpsLastTime
+                pygame.display.set_caption(str(round(1/frameTime)))
+            except:
+                pass
             self.fpsLastTime = timeNow
 
     def closest(self, x, y):

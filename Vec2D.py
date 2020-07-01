@@ -47,7 +47,7 @@ class Vec2D(tuple):
 
     def angle(self,vec):
         a = math.degrees(math.atan2(-(self[0]-vec[0]),-(self[1]-vec[1])))
-        return a%360
+        return -a%360
     
     def rotateAroundPoint(self,vec,angle):
         x,y = vec
@@ -60,5 +60,6 @@ class Vec2D(tuple):
         return Vec2D(self[0]-(self[0]-vec[0])*d,self[1]-(self[1]-vec[1])*d)
 
 if __name__ == '__main__':
-    a = Vec2D(0, 100)
-    print(a.rotate(90))
+    a = Vec2D(100, 100)
+    b = Vec2D(0, 0)
+    print(b.angle(a))

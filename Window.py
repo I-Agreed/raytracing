@@ -23,7 +23,8 @@ class Window():
 
         for i in self.shapes:
             i.draw()
-
+            if type(i) is Ellipse.Ellipse and i.w != i.h:
+                print(i.distance(*pygame.mouse.get_pos(),True))
         pygame.display.flip()
 
     def mouseEvent(self, x, y):

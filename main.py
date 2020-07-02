@@ -8,6 +8,6 @@ Rect.Rect(win, 250, 50, 150, 60, (255, 255, 0))
 Rect.Rect(win, 35, 200, 75, 60, (0, 255, 255))
 Line.Line(win, 225, 300, 350, 175, (255, 0, 255))
 Polygon.Polygon(win, (255, 0, 0), (10, 350), (100, 300), (30, 390), (50, 350))
-Ellipse.Ellipse(win, 200, 400, 100, 50, (255, 0, 255))
+#Ellipse.Ellipse(win, 200, 400, 100, 50, (255, 0, 255)) Doesnt work properly
 
 win.loop()

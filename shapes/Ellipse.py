@@ -15,9 +15,10 @@ class Ellipse(BaseShape):
 
         if self.w == self.h:
             return pythag(x, y, self.x + self.w / 2, self.y + self.w / 2) - self.w / 2
+
         else: #TODO: make this actually work properly
-            fociDistance = (max((self.w / 2) ** 2, (self.h / 2) ** 2) - min((self.w / 2) ** 2,
-                                                                            (self.h / 2) ** 2)) ** 0.5
+            # fociDistance = (max((self.w / 2) ** 2, (self.h / 2) ** 2) - min((self.w / 2) ** 2,
+            #                                                                 (self.h / 2) ** 2)) ** 0.5
             # length = fociDistance*2+self.w-(fociDistance*2)
 
             angle = -Vec2D(self.x+self.w/2, self.y+self.h/2).angle((x, y))
